@@ -2,6 +2,14 @@
 
 <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--h03lU8An--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/mih10uhu1464fx1kr0by.jpg" width="100%"/>
 
+
+## Model-Based Collaborative Filtering: Matrix Factorization
+
+1. Preparation of the Dataset
+2. Modeling
+3. Model Tuning
+4. Final Model and Prediction
+
 # The history of dataset
 
 The "movie_lens_dataset" is a popular dataset in the field of recommender systems, containing information about movies and user ratings. It includes several files, but two of the main ones are "movie.csv" and "rating.csv".
@@ -22,3 +30,5 @@ The "rating.csv" file contains information about user ratings of the movies in t
 Together, these two files provide a rich source of information for building and evaluating recommender systems.
 
 datasets: https://www.kaggle.com/datasets/grouplens/movielens-20m-dataset
+
+
