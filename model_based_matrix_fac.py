@@ -24,13 +24,13 @@ pd.set_option('display.expand_frame_repr', False)
 movie = pd.read_csv('datasets/movie_lens_dataset/movie.csv')
 rating = pd.read_csv('datasets/movie_lens_dataset/rating.csv')
 
-df = movie.merge(rating, how="left", on="movieId")
+df = movie.merge(rating, how='left', on='movieId')
 
 movie_ids = [130219, 356, 4422, 541]
-movies = ["The Dark Knight (2011)",
-          "Cries and Whispers (Viskningar och rop) (1972)",
-          "Forrest Gump (1994)",
-          "Blade Runner (1982)"]
+movies = ['The Dark Knight (2011)',
+          'Cries and Whispers (Viskningar och rop) (1972)',
+          'Forrest Gump (1994)',
+          'Blade Runner (1982)']
 
 sample_df = df[df.movieId.isin(movie_ids)]
 
@@ -56,14 +56,14 @@ predictions = svd_model.test(testset)
 
 accuracy.rmse(predictions) # 0.9329509453734651
 
-sample_df[sample_df["userId"] == 1][["movieId", "rating"]]
+sample_df[sample_df['userId'] == 1][['movieId', 'rating']]
 
 #          movieId  rating
 # 3612352      541     4.0
 
 svd_model.predict(uid=1.0, iid=541, verbose=True) # actual: 4, model=4.013737589502537
 
-sample_df[sample_df["userId"] == 137665.0][["movieId", "rating"]]
+sample_df[sample_df['userId'] == 137665.0][['movieId', 'rating']]
 
 #           movieId  rating
 # 3642707       541     5.0
@@ -82,11 +82,11 @@ gs = GridSearchCV(SVD, param_grid, measures=['rmse', 'mae'], cv=3, n_jobs=-1, jo
 
 gs.fit(data)
 
-gs.best_score["rmse"] # 0.9304491317273514
-gs.best_params["rmse"] # {'n_epochs': 10, 'lr_all': 0.002}
+gs.best_score['rmse'] # 0.9304491317273514
+gs.best_params['rmse'] # {'n_epochs': 10, 'lr_all': 0.002}
 
-gs.best_score["mae"] # 0.7161439481774107
-gs.best_params["mae"] # {'n_epochs': 10, 'lr_all': 0.002}
+gs.best_score['mae'] # 0.7161439481774107
+gs.best_params['mae'] # {'n_epochs': 10, 'lr_all': 0.002}
 
 ##########################################
 # 4. Final Model and Prediction
@@ -95,7 +95,7 @@ gs.best_params["mae"] # {'n_epochs': 10, 'lr_all': 0.002}
 dir(svd_model)
 svd_model.n_epochs # 20
 
-svd_model_final = SVD(**gs.best_params["rmse"])
+svd_model_final = SVD(**gs.best_params['rmse'])
 
 data = data.build_full_trainset()
 svd_model_final.fit(data)
